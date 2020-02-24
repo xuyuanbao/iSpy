@@ -36,4 +36,5 @@ Remove the signing post build event command as the code signing certificate is n
 
 If you have dll reference errors when building you may need to go into the DLLS folder and right-click - unblock the DLLs. (Windows Security issue)
 
-
+QQ交流群：我自己创造了一个QQ群：328381257 ispy开源交流
+欢迎加入群聊
