@@ -112,6 +112,8 @@ namespace iSpyApplication.Utilities
             return GetResponse(co, out request);
         }
 
+
+
         private static readonly List<DigestConfig> Digests = new List<DigestConfig>();
 
         private static void AddDigest(DigestConfig digest)
@@ -407,5 +409,8 @@ namespace iSpyApplication.Utilities
             }
             return request;
         }
+
+
+
     }
 }

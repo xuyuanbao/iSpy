@@ -47,12 +47,16 @@ public partial class configuration {
     private bool password_Protect_StartupField;
     
     private string mJPEGURLField;
+
+    private string eSP32CamURLField;
     
     private string aVIFileNameField;
     
     private string recentJPGListField;
     
     private string recentMJPGListField;
+
+    private string recentESP32CamListField;
     
     private string recentFileListField;
     
@@ -517,6 +521,7 @@ public partial class configuration {
         }
     }
     
+
     /// <remarks/>
     public string MJPEGURL {
         get {
@@ -527,6 +532,18 @@ public partial class configuration {
         }
     }
     
+    public string ESP32CamURL
+    {
+        get
+        {
+            return this.eSP32CamURLField;
+        }
+        set
+        {
+            this.eSP32CamURLField = value;
+        }
+    }
+
     /// <remarks/>
     public string AVIFileName {
         get {
@@ -554,6 +571,18 @@ public partial class configuration {
         }
         set {
             this.recentMJPGListField = value;
+        }
+    }
+
+    public string RecentESP32CamList
+    {
+        get
+        {
+            return this.recentESP32CamListField;
+        }
+        set
+        {
+            this.recentESP32CamListField = value;
         }
     }
     

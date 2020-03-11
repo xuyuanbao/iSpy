@@ -26,13 +26,14 @@
   </ItemGroup>
   <ItemGroup>
     <WixExtension Include="WixNetFxExtension">
-      <HintPath>$(WixExtDir)\WixNetFxExtension.dll</HintPath>
+      <HintPath>WixNetFxExtension.dll</HintPath>
       <Name>WixNetFxExtension</Name>
     </WixExtension>
     <WixExtension Include="WixBalExtension">
-      <HintPath>$(WixExtDir)\WixBalExtension.dll</HintPath>
+      <HintPath>WixBalExtension.dll</HintPath>
       <Name>WixBalExtension</Name>
     </WixExtension>
+    <WixExtension Include="D:\iSpy\Wix\Bootstrap32\WixBalExtension.dll" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\iSpy32\iSpy32Setup.wixproj">

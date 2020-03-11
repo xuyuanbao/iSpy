@@ -187,6 +187,7 @@ namespace iSpyApplication
             cmbMJPEGURL.Text = MainForm.Conf.MJPEGURL;
             cmbVLCURL.Text = MainForm.Conf.VLCURL;
             cmbFile.Text = MainForm.Conf.AVIFileName;
+            cmbESP32CamUrl.Text = MainForm.Conf.ESP32CamURL;
             ConfigureSnapshots = true;
 
             txtLogin.Text = txtLogin2.Text = CameraControl.Camobject.settings.login;
@@ -584,7 +585,8 @@ namespace iSpyApplication
             MainForm.Conf.MJPEGURL = cmbMJPEGURL.Text.Trim();
             MainForm.Conf.AVIFileName = cmbFile.Text.Trim();
             MainForm.Conf.VLCURL = cmbVLCURL.Text.Trim();
-           
+            MainForm.Conf.ESP32CamURL = cmbESP32CamUrl.Text.Trim();
+
             string nv="";
 
             SourceIndex = GetSourceIndex();
@@ -813,6 +815,31 @@ namespace iSpyApplication
                         return;
                     }
                     break;
+                case 11:
+
+                    url = cmbESP32CamUrl.Text.Trim(); 
+                    if (string.IsNullOrEmpty(url))
+                    {
+                        MessageBox.Show(LocRm.GetString("Validate_SelectCamera"), LocRm.GetString("Note"));
+                        return;
+                    }
+                    VideoSourceString = url;
+                    
+                    try
+                    {
+                        var uri = new Uri(VideoSourceString);
+
+                        if (!string.IsNullOrEmpty(uri.DnsSafeHost))
+                        {                            
+                            //CameraControl.Camobject.settings.videosourcestring = VideoSourceString;
+                        }
+                    }
+                    catch
+                    {
+                        MessageBox.Show(LocRm.GetString("InvalidURL"), LocRm.GetString("Error"));
+                        return;
+                    }
+                    break;
             }
             CameraControl.Camobject.settings.namevaluesettings = nv;
 
@@ -863,8 +890,13 @@ namespace iSpyApplication
                 MainForm.Conf.RecentVLCList =
                     (MainForm.Conf.RecentVLCList + "|" + MainForm.Conf.VLCURL).Trim('|');
             }
-           
-            
+            if (!MainForm.Conf.RecentVLCList.Contains(MainForm.Conf.ESP32CamURL) &&
+                MainForm.Conf.ESP32CamURL != "")
+            {
+                MainForm.Conf.RecentVLCList =
+                    (MainForm.Conf.RecentESP32CamList + "|" + MainForm.Conf.ESP32CamURL).Trim('|');
+            }
+
 
             DialogResult = DialogResult.OK;
             Close();
@@ -1170,6 +1202,8 @@ namespace iSpyApplication
                 sourceIndex = 9;
             if (tcSource.SelectedTab.Equals(tabPage11))
                 sourceIndex = 10;
+            if (tcSource.SelectedTab.Equals(tabPage12))
+                sourceIndex = 11;
             return sourceIndex;
         }
 

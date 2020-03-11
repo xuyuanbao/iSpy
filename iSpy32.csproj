@@ -167,6 +167,9 @@
   <PropertyGroup>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
   </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="AForge, Version=2.2.3.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -395,6 +398,7 @@
     <Compile Include="Sources\Audio\talk\TalkAmcrest.cs" />
     <Compile Include="Sources\Audio\talk\TalkDoorbird.cs" />
     <Compile Include="Sources\Audio\talk\WaveFormatConverter.cs" />
+    <Compile Include="Sources\Video\ESP32CamStream.cs" />
     <Compile Include="Sources\Video\FFmpegBase.cs" />
     <Compile Include="Sources\Audio\TinyAudioProcessor.cs" />
     <Compile Include="Sources\Video\MediaStream.cs" />

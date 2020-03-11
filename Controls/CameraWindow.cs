@@ -4328,6 +4328,8 @@ namespace iSpyApplication.Controls
                         return "ONVIF";
                     case 10:
                         return "Cloned";
+                    case 11:
+                        return "ESP32Cam Jpg";
                 }
             }
 
@@ -4499,6 +4501,11 @@ namespace iSpyApplication.Controls
                             }
 
                         }
+                        break;
+
+                    case 11:
+                        var ESP32CamjpegSource = new ESP32CamStream(this);
+                        OpenVideoSource(ESP32CamjpegSource, true);
                         break;
                     }
 
